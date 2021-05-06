@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS --Your bd;
+CREATE DATABASE --Your bd;
