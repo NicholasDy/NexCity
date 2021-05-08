@@ -5,38 +5,45 @@ let citySymbol = "";
 let endCity = "Tokyo"; // later input used in case we are switching cities or building out the end point
 let endCitySymbol = "TYOA";
 let travelId = "298184";
-let budget = 4000;-
+let budget = 4000;
 let startDate = "";
 let returnDate = "";
+
+let adultsNum = 3;
+let roomNum = 2;
 let flightPrice = "";
 
-// // travel advisor api
-// const options = {
-//   method: 'GET',
-//   url: 'https://travel-advisor.p.rapidapi.com/hotels/list',
-//   params: {
-//     location_id: travelId,
-//     adults: '1',
-//     rooms: '1',
-//     nights: '2',
-//     offset: '0',
-//     currency: 'USD',
-//     order: 'asc',
-//     limit: '20',
-//     sort: 'recommended',
-//     lang: 'en_US'
-//   },
-//   headers: {
-//     'x-rapidapi-key': 'f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6',
-//     'x-rapidapi-host': 'travel-advisor.p.rapidapi.com'
-//   }
-// };
 
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
+// travel advisor api
+async function gettingLocalHotelAttra(){
+    const options = {
+  method: 'GET',
+  url: 'https://travel-advisor.p.rapidapi.com/hotels/list',
+  params: {
+    location_id: travelId,
+    adults: adultsNum,
+    rooms: roomNum,
+    nights: '2',
+    offset: '0',
+    currency: 'USD',
+    order: 'asc',
+    limit: '20',
+    sort: 'recommended',
+    lang: 'en_US'
+  },
+  headers: {
+    'x-rapidapi-key': 'f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6',
+    'x-rapidapi-host': 'travel-advisor.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+}
+
 
 // request for the city code
 async function gettingTheCityCode() {
