@@ -1,0 +1,87 @@
+let axios = require("axios").default;
+let cityName = "New York";
+let citySymbol = "";
+let endCity = "Tokyo";
+let endCitySymbol = "TYOA";
+let travelId = "298184";
+let budget = 4000;
+let startDate = "";
+let returnDate = "";
+let flightPrice = "";
+
+// // travel advisor api
+// const options = {
+//   method: 'GET',
+//   url: 'https://travel-advisor.p.rapidapi.com/hotels/list',
+//   params: {
+//     location_id: travelId,
+//     adults: '1',
+//     rooms: '1',
+//     nights: '2',
+//     offset: '0',
+//     currency: 'USD',
+//     order: 'asc',
+//     limit: '20',
+//     sort: 'recommended',
+//     lang: 'en_US'
+//   },
+//   headers: {
+//     'x-rapidapi-key': 'f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6',
+//     'x-rapidapi-host': 'travel-advisor.p.rapidapi.com'
+//   }
+// };
+
+// axios.request(options).then(function (response) {
+// 	console.log(response.data);
+// }).catch(function (error) {
+// 	console.error(error);
+// });
+
+// request for the city code
+async function gettingTheCityCode() {
+  const skyscannerCityName = await {
+    method: "GET",
+    url:
+      "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/",
+    params: { query: cityName },
+    headers: {
+      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-host":
+        "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+    },
+  };
+  axios
+    .request(skyscannerCityName)
+    .then(function (response) {
+      console.log(response.data.Places[0].CityId);
+      citySymbol = response.data.Places[0].CityId;
+      gettingFlightData();
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+async function gettingFlightData() {
+  let flightoptions = {
+    method: "GET",
+    url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${citySymbol}/${endCitySymbol}/${startDate}/${returnDate}`,
+    headers: {
+      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-host":
+        "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+    },
+  };
+  axios
+    .request(flightoptions)
+    .then(function (response) {
+      flightPrice = response.data.Quotes[1].minPrice;
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+
+gettingTheCityCode();
+
+//we need to loop over the quotes and then display that over to the display page 
