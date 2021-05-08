@@ -1,10 +1,11 @@
 let axios = require("axios").default;
+
 let cityName = "New York";
 let citySymbol = "";
-let endCity = "Tokyo";
+let endCity = "Tokyo"; // later input used in case we are switching cities or building out the end point
 let endCitySymbol = "TYOA";
 let travelId = "298184";
-let budget = 4000;
+let budget = 4000;-
 let startDate = "";
 let returnDate = "";
 let flightPrice = "";
@@ -83,5 +84,13 @@ async function gettingFlightData() {
 }
 
 gettingTheCityCode();
+// will be adding the event listener for the gettingTheCityCode after the user wants to save the data 
+
+// function readjustingTheBudget(amountTaken){
+// code for taking the correct budget 
+// }
 
 //we need to loop over the quotes and then display that over to the display page 
+    //we want to create buttons for each of the options so that they can be added to the users account
+
+//then when we add it to the list the remaining budget is readjusted after factoring in the amount from the new add 
