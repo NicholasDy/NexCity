@@ -1,2 +1,3 @@
-DROP DATABASE IF EXISTS --Your bd;
-CREATE DATABASE --Your bd;
+DROP DATABASE IF EXISTS traveling_db;
+CREATE DATABASE traveling_db;
+USE traveling_db;

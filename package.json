@@ -1,0 +1,28 @@
+{
+  "name": "nexcity",
+  "version": "1.0.0",
+  "description": "Traveling to Tokyo? We got you covered ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.6.2",
+    "sequelizer": "^1.1.4",
+    "sync": "^0.2.5"
+  }
+}
