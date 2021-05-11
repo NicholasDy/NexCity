@@ -1,4 +1,5 @@
 let axios = require("axios").default;
+// let listLocation = document.querySelector(".") //need to fill this in with a class where we are throwing the list for the html
 
 // static inputs for Tokyo
 let endCity = "Tokyo"; // later input used in case we are switching cities or building out the end point
@@ -14,24 +15,18 @@ let budget = 4000;
 let adultsNum = 3;
 let roomNum = 2;
 let flightPrice = "";
-let startDate = "2021/05/10";
-let returnDate = "2021/05/15";
+let startDate = "2021-05-15"; //if you are going to test dates remember to have them in the future
+let returnDate = "2021-05-20";
 let nights = "1";
-let lat = 0;
-let long = 0;
+let lat = 35.6762;
+let long = 139.6503;
 
-function dateDifference() {
-  let date1 = new Date(startDate);
-  let date2 = new Date(returnDate);
-  let dateDifference = date2.getTime() - date1.getTime();
-  nights = dateDifference / (1000 * 3600 * 24);
-  console.log(nights);
-  gettingLocalHotelAttra();
-}
+// final input +
+
 // skyscanner api
 // request for the city code
 function gettingTheCityCode() {
-  const skyscannerCityName = await {
+  const skyscannerCityName = {
     method: "GET",
     url:
       "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/",
@@ -47,13 +42,14 @@ function gettingTheCityCode() {
     .then(function (response) {
       console.log(response.data.Places[0].CityId);
       citySymbol = response.data.Places[0].CityId;
-      gettingFlightData();
+      gettingFlightData(citySymbol);
     })
     .catch(function (error) {
       console.error(error);
     });
 }
-function gettingFlightData() {
+
+function gettingFlightData(citySymbol) {
   let flightoptions = {
     method: "GET",
     url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${citySymbol}/${endCitySymbol}/${startDate}/${returnDate}`,
@@ -66,23 +62,37 @@ function gettingFlightData() {
   axios
     .request(flightoptions)
     .then(function (response) {
-        generateFlightList(response)
-      
+      console.log(response.data);
+      // data.quotes & data.carriers
+      // generateFlightList(response)
     })
     .catch(function (error) {
       console.error(error);
     });
 }
 function generateFlightList(response) {
-    flightPrice = response.data.Quotes[1].minPrice;
-    for(let i = 0; i <= response.length; i++){
-        // generate the list from the options given
-        // try to give no more than 10 options 
-    }
+  flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
+  for (let i = 0; i <= response.length; i++) {
+    // generate the list from the options given
+    // try to give no more than 10 options
+    listLocation.append(`
+        
+        `);
+  }
+}
+function saveFlight() {
+  // push the flight to trip array
 }
 
 // travel advisor api
-function gettingLocalHotelAttra() {
+function dateDifference() {
+  let date1 = new Date(startDate);
+  let date2 = new Date(returnDate);
+  let dateDifference = date2.getTime() - date1.getTime();
+  nights = dateDifference / (1000 * 3600 * 24);
+  gettingHotel();
+}
+function gettingHotel() {
   const options = {
     method: "GET",
     url: "https://travel-advisor.p.rapidapi.com/hotels/list",
@@ -122,24 +132,21 @@ function createHotelOptions(hotelList) {
     hotelList[i].name;
     hotelList[i].reviews;
     hotelList[i].price;
-    
+
     // add a button that is going to save the hotel to the list
   }
 }
-//saving the hotel
 function saveHotel() {
-    // this function is going to save the lat and long from the selected object
-    // push all the data needed to the database // this is the function that is needed to get the resturants that are near the hotel
-   // this is the function that is needed to get the attractions that are near the hotel 
+  // this function is going to save the lat and long from the selected object
+  // push all the data needed to the database // this is the function that is needed to get the resturants that are near the hotel
+  // this is the function that is needed to get the attractions that are near the hotel
 }
-  // save the hotel function, going to need the number of days to generated cost
-    // from there we are going to need to have the budget adjusted 
-    // this function is going to save the lat and longitude of the selected hotel
-  
+// save the hotel function, going to need the number of days to generated cost
+// from there we are going to need to have the budget adjusted
+// this function is going to save the lat and longitude of the selected hotel
 
-
-//getting resturants near the hotel 
-function restLatLong(lat, long) {
+// getting resturants near the hotel
+function restLatLong() {
   const options = {
     method: "GET",
     url: "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng",
@@ -162,63 +169,79 @@ function restLatLong(lat, long) {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
+      createRestOptions(response);
     })
     .catch(function (error) {
       console.error(error);
     });
 }
+function createRestOptions(response) {}
+function saveRest() {
+  //using the button to save the rest options
+}
+// getting attractions near the hotel
+function attrractLatLong() {
+  const options = {
+    method: "GET",
+    url: "https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng",
+    params: {
+      longitude: lat,
+      latitude: long,
+      lunit: "mi",
+      currency: "USD",
+      limit: "15",
+      distance: "10",
+      lang: "en_US",
+    },
+    headers: {
+      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
+    },
+  };
 
-function attrractLatLong(lat,long){
-    const options = {
-        method: 'GET',
-        url: 'https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng',
-        params: {
-          longitude: lat,
-          latitude: long,
-          lunit: 'mi',
-          currency: 'USD',
-          limit:'15',
-          distance:'10',
-          lang: 'en_US'
-        },
-        headers: {
-          'x-rapidapi-key': 'f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6',
-          'x-rapidapi-host': 'travel-advisor.p.rapidapi.com'
-        }
-      };
-      
-      axios.request(options).then(function (response) {
-          console.log(response.data);
-      }).catch(function (error) {
-          console.error(error);
-      });
+  axios
+    .request(options)
+    .then(function (response) {
+      createAttractOptions(response);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+function createAttractOptions(response) {}
+function saveAttract() {
+  //using the button to save the Attract
 }
 
+function budgetAdjust(input) {
+  // taking the input after every save function to then take the price and subject that from the total budget
+  if (budget < 0) {
+    //change the colour of budget to red if it is lower than 0
+  }
+}
 
-// save flight function 
+function postToUser() {
+  // this is going to be for the post method for the user on the database
+  // Quotes = budget
+  // hotel = destination
+  // carriers = airlines/ date
+  // attractions = places to see near by
+}
 
 // function calls
-// gettingTheCityCode();
+gettingTheCityCode();
 // dateDifference();
 
-//event listener for the calls for the things to do
+// buttons that need to be created                              Functions for each event
 
-// buttons that need to be created 
-// button to save the flight generated from the list 
-// button to save the hotel and the lat/long to a global
-// button that is going to bring up the resturants  
-// button that is going to save the resturants 
-// button that is going to bring up the attractions 
-// button that is going to save the attractions 
+// button to save the flight generated from the list        saveFlight
+// button to save the hotel and the lat/long to a global    saveHotel
+// button that is going to save the resturants              saveRest
+// button that is going to save the attractions             saveAttract
+
+// button to get the flights                                gettingTheCityCode
+// button to get the hotels                                 dateDifference ---> gettingHotel
+// button that is going to bring up the attractions         attrractLatLong
+// button that is going to bring up the resturants          restLatLong
 
 // will be adding the event listener for the gettingTheCityCode after the user wants to save the data
-
-// function readjustingTheBudget(amountTaken){
-// code for taking the correct budget
-// }
-
-//we need to loop over the quotes and then display that over to the display page
-//we want to create buttons for each of the options so that they can be added to the users account
-
-//then when we add it to the list the remaining budget is readjusted after factoring in the amount from the new add
