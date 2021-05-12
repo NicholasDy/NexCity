@@ -32,7 +32,7 @@ function gettingTheCityCode() {
       "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/",
     params: { query: cityName },
     headers: {
-      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-key": "",
       "x-rapidapi-host":
         "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
     },
@@ -54,7 +54,7 @@ function gettingFlightData(citySymbol) {
     method: "GET",
     url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${citySymbol}/${endCitySymbol}/${startDate}/${returnDate}`,
     headers: {
-      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-key": "",
       "x-rapidapi-host":
         "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
     },
@@ -109,7 +109,7 @@ function gettingHotel() {
       lang: "en_US",
     },
     headers: {
-      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-key": "",
       "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
     },
   };
@@ -161,7 +161,7 @@ function restLatLong() {
       lang: "en_US",
     },
     headers: {
-      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-key": "",
       "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
     },
   };
@@ -194,7 +194,7 @@ function attrractLatLong() {
       lang: "en_US",
     },
     headers: {
-      "x-rapidapi-key": "f9ac14ff9dmshd8e1f7338983235p19bab2jsn70df5227ecc6",
+      "x-rapidapi-key": "",
       "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
     },
   };
