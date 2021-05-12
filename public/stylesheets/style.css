@@ -1,0 +1,79 @@
+h1 h2 h3 h4 h5 {
+    font-weight: bold !important;
+}
+
+.section-search input {
+    padding: 5px !important;
+    padding-left: 10px !important;
+    font-size: 20px !important;
+    width: 90% !important;
+    border: #f4f4f4 3px solid !important;
+    color: purple !important;
+}
+
+.section-follow .fa-3x {
+    margin: 5px 10px;
+}
+/* body { 
+    background-image: url("../img/road.jpg");
+    background-size: cover;
+}*/
+.navbar-fixed {
+    width: 100%;
+}
+.nav-wrapper {
+    margin-left: 20px;
+}
+
+.slider .slides ul li {
+    position: static;
+    top: 64px !important;
+}
+
+.btn {
+    font-size: 24px;
+    background-color: teal;
+}
+
+caption.center.align h2 {
+    background: black !important;
+    opacity: 0.3 !important;
+}
+
+.loginHeader {
+    background: purple;
+}
+
+.loginBtn {
+    color: white;
+}
+
+p {
+    font-size: 20px;
+}
+
+.input-field {
+    color: purple;
+}
+
+html {
+    background: #8E24AA;
+}
+
+/* #saved {
+    color: #ffffff;
+} */
+
+.saved-table {
+    color: white;
+}
+
+.saveBtn {
+    background: teal;
+    color: white;
+}
+
+.deleteBtn {
+    background: teal;
+    color: white;
+}
