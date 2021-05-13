@@ -20,8 +20,10 @@ let nights = "1";
 let lat = 35.6762;
 let long = 139.6503;
 
-let getFlights = document.querySelector("#get-flights");
+const getFlights = document.querySelector("#get-flights");
 const resultSect = document.querySelector(".results-section")
+const saveFlights = document.querySelector(".save-flight")
+const resultFlight = document.querySelector(".results")
 
 // final input
 function test1(event) {
@@ -121,23 +123,32 @@ function generateFlightList(response) {
     // try to give no more than 10 options
     let flightCells = 
   `<div>
-      <div class='results'>
-          <p>Carrier: ${response.data.Carriers[i].Name}</p>
-          <p>Airport: ${response.data.Places[i].IataCode}</p>
-          <p>Min Price: $${response.data.Quotes[i].MinPrice}</p>
+      <div class='results' data-marker='${i}' >
+          <p>Carrier: <span data-marker='${i}' id="carrier${i}" >${response.data.Carriers[i].Name}</span></p>
+          <p>Airport: <span data-marker='${i}' id="airport${i}">${response.data.Places[i].IataCode}</span></p>
+          <p>Min Price: $<span data-marker='${i} id="price${i}"'>${response.data.Quotes[i].MinPrice}</span></p>
           <div>
-              <button class="save-trip">save</button>
+              <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
           </div>
-      </div>
-      <div class="budget">
-          <p>Budget is going here</p>
       </div>
   </div>`
   resultSect.innerHTML= flightCells
   }
 }
-function saveFlight() {
+
+function btnID(ID) {
   // push the flight to trip array
+  console.log(ID)
+  let flight =[]
+  if ( resultFlight.dataset.marker === ID ){
+    let carrrier = document.querySelector(`carrier${ID}`).value;
+    let airport = document.querySelector(`airport${ID}`).value;
+    let price = document.querySelector(`price${ID}`).value;
+    flight.push(carrrier)
+    flight.push(airport)
+    flight.push(price)
+  }
+  console.log(flight)
 }
 // travel advisor api
 function dateDifference() {
@@ -268,7 +279,7 @@ function postToUser() {
 
 document.getElementById("form1").addEventListener("submit", test1);
 getFlights.addEventListener("click", gettingTheCityCode);
-
+// saveFlight.addEventListener("click", saveFlight);
 // button to save the flight generated from the list        saveFlight
 // button to save the hotel and the lat/long to a global    saveHotel
 // button that is going to save the resturants              saveRest
