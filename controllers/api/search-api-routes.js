@@ -31,7 +31,7 @@ router.get("/cities/:name", function (req, res) {
 //getting skyscanner to grab flights
 router.get("/flights", function (req, res) {
   // try {
-  let endCity = req.query.endCitySymbol;
+  let endCity = req.query.endCity;
   let citySymbol = req.query.citySymbol;
   let startDate = req.query.startDate;
   let returnDate = req.query.returnDate;

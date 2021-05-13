@@ -20,6 +20,9 @@ let nights = "1";
 let lat = 35.6762;
 let long = 139.6503;
 
+let getFlights = document.querySelector("#get-flights");
+const resultSect = document.querySelector(".results-section")
+
 // final input
 function test1(event) {
   event.preventDefault();
@@ -43,11 +46,17 @@ function test1(event) {
     return;
   } else {
     removeform();
+    addResultsSection();
   }
 }
+
 function removeform() {
   let form1 = document.querySelector("#inputs1");
   form1.remove();
+}
+
+function addResultsSection() {
+  let resultsSection;
 }
 
 // skyscanner api
@@ -63,22 +72,26 @@ function gettingTheCityCode() {
   axios
     .request(skyscannerCityName)
     .then(function (response) {
-      console.log(response.Places[0].CityId);
-      citySymbol = response.Places[0].CityId;
-      // gettingFlightData(citySymbol);
+      console.log(response.data.Places[0].CityId);
+      citySymbol = response.data.Places[0].CityId;
+      gettingFlightData(citySymbol);
     })
+
     .catch(function (error) {
       console.error(error);
     });
 }
 
 function gettingFlightData() {
-  let params = new URLSearchParams(
-    `symbol=${citySymbol}&endSymbol=${endCitySymbol}&startDate=${startDate}&returnDate=${returnDate}`
-  );
   let flightoptions = {
     method: "GET",
-    url: `/flights/symbol=${citySymbol}&endSymbol=${endCitySymbol}&startDate=${startDate}&returnDate=${returnDate}`,
+    url: "api/destination/flights",
+    params:{
+      citySymbol: citySymbol,
+      endCity: endCitySymbol,
+      startDate: startDate,
+      returnDate: returnDate  
+    },
     // we can send a post request (bad practice)
     // query string
     // ?symbol=SYM&endSymbol=END&startDate=whatever&returnDate=anotherDate
@@ -91,9 +104,9 @@ function gettingFlightData() {
   axios
     .request(flightoptions)
     .then(function (response) {
-      console.log(response.data);
+      // console.log(response.data.Carriers[0].Name);
       // data.quotes & data.carriers
-      // generateFlightList(response)
+      generateFlightList(response)
     })
     .catch(function (error) {
       console.error(error);
@@ -101,13 +114,26 @@ function gettingFlightData() {
 }
 
 function generateFlightList(response) {
-  flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
-  for (let i = 0; i <= response.length; i++) {
+  // flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
+  console.log(response.data.Carriers[0].Name)
+  for (let i = 0; i <= response.data.Quotes.length; i++) {
     // generate the list from the options given
     // try to give no more than 10 options
-    listLocation.append(`
-        
-        `);
+    let flightCells = 
+  `<div>
+      <div class='results'>
+          <p>Carrier: ${response.data.Carriers[i].Name}</p>
+          <p>Airport: ${response.data.Places[i].IataCode}</p>
+          <p>Min Price: $${response.data.Quotes[i].MinPrice}</p>
+          <div>
+              <button class="save-trip">save</button>
+          </div>
+      </div>
+      <div class="budget">
+          <p>Budget is going here</p>
+      </div>
+  </div>`
+  resultSect.innerHTML= flightCells
   }
 }
 function saveFlight() {
@@ -241,6 +267,7 @@ function postToUser() {
 // buttons that need to be created                              Functions for each event
 
 document.getElementById("form1").addEventListener("submit", test1);
+getFlights.addEventListener("click", gettingTheCityCode);
 
 // button to save the flight generated from the list        saveFlight
 // button to save the hotel and the lat/long to a global    saveHotel
