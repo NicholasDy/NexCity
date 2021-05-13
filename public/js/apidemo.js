@@ -1,4 +1,3 @@
-let axios = require("axios").default;
 // let listLocation = document.querySelector(".") //need to fill this in with a class where we are throwing the list for the html
 
 // static inputs for Tokyo
@@ -21,20 +20,55 @@ let nights = "1";
 let lat = 35.6762;
 let long = 139.6503;
 
-// final input +
+const getFlights = document.querySelector("#get-flights");
+const resultSect = document.querySelector(".results-section")
+const saveFlights = document.querySelector(".save-flight")
+const resultFlight = document.querySelector(".results")
+
+// final input
+function test1(event) {
+  event.preventDefault();
+
+  startDate = document.querySelector("#start").value.trim();
+  returnDate = document.querySelector("#return").value.trim();
+  cityName = document.querySelector("#location").value.trim();
+  budget = document.querySelector("#budget").value.trim();
+  adultsNum = document.querySelector("#people").value.trim();
+  roomNum = document.querySelector("#rooms").value.trim();
+
+  if (
+    !startDate ||
+    !returnDate ||
+    !cityName ||
+    !budget ||
+    !adultsNum ||
+    !roomNum
+  ) {
+    alert("please remember to input all info");
+    return;
+  } else {
+    removeform();
+    addResultsSection();
+  }
+}
+
+function removeform() {
+  let form1 = document.querySelector("#inputs1");
+  form1.remove();
+}
+
+function addResultsSection() {
+  let resultsSection;
+}
 
 // skyscanner api
 // request for the city code
 function gettingTheCityCode() {
   const skyscannerCityName = {
     method: "GET",
-    url:
-      "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/",
-    params: { query: cityName },
+    url: "/api/destination/cities/" + cityName,
     headers: {
-      "x-rapidapi-key": "",
-      "x-rapidapi-host":
-        "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+      "Content-Type": "application/json",
     },
   };
   axios
@@ -44,46 +78,78 @@ function gettingTheCityCode() {
       citySymbol = response.data.Places[0].CityId;
       gettingFlightData(citySymbol);
     })
+
     .catch(function (error) {
       console.error(error);
     });
 }
 
-function gettingFlightData(citySymbol) {
+function gettingFlightData() {
   let flightoptions = {
     method: "GET",
-    url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${citySymbol}/${endCitySymbol}/${startDate}/${returnDate}`,
+    url: "api/destination/flights",
+    params:{
+      citySymbol: citySymbol,
+      endCity: endCitySymbol,
+      startDate: startDate,
+      returnDate: returnDate  
+    },
+    // we can send a post request (bad practice)
+    // query string
+    // ?symbol=SYM&endSymbol=END&startDate=whatever&returnDate=anotherDate
+    // req.query.symbol = SYM
+    // req.query.endSymbol = END
     headers: {
-      "x-rapidapi-key": "",
-      "x-rapidapi-host":
-        "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+      "Content-Type": "application/json",
     },
   };
   axios
     .request(flightoptions)
     .then(function (response) {
-      console.log(response.data);
+      // console.log(response.data.Carriers[0].Name);
       // data.quotes & data.carriers
-      // generateFlightList(response)
+      generateFlightList(response)
     })
     .catch(function (error) {
       console.error(error);
     });
 }
+
 function generateFlightList(response) {
-  flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
-  for (let i = 0; i <= response.length; i++) {
+  // flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
+  console.log(response.data.Carriers[0].Name)
+  for (let i = 0; i <= response.data.Quotes.length; i++) {
     // generate the list from the options given
     // try to give no more than 10 options
-    listLocation.append(`
-        
-        `);
+    let flightCells = 
+  `<div>
+      <div class='results' data-marker='${i}' >
+          <p>Carrier: <span data-marker='${i}' id="carrier${i}" >${response.data.Carriers[i].Name}</span></p>
+          <p>Airport: <span data-marker='${i}' id="airport${i}">${response.data.Places[i].IataCode}</span></p>
+          <p>Min Price: $<span data-marker='${i} id="price${i}"'>${response.data.Quotes[i].MinPrice}</span></p>
+          <div>
+              <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
+          </div>
+      </div>
+  </div>`
+  resultSect.innerHTML= flightCells
   }
 }
-function saveFlight() {
-  // push the flight to trip array
-}
 
+function btnID(ID) {
+  // push the flight to trip array
+  console.log(ID)
+  let flight =[]
+  if ( resultFlight.dataset.marker === ID ){
+    let carrrier = document.querySelector(`carrier${ID}`).value;
+    let airport = document.querySelector(`airport${ID}`).value;
+    let price = document.querySelector(`price${ID}`).value;
+    flight.push(carrrier)
+    flight.push(airport)
+    flight.push(price)
+  }
+  console.log(flight)
+}
 // travel advisor api
 function dateDifference() {
   let date1 = new Date(startDate);
@@ -95,21 +161,9 @@ function dateDifference() {
 function gettingHotel() {
   const options = {
     method: "GET",
-    url: "https://travel-advisor.p.rapidapi.com/hotels/list",
-    params: {
-      location_id: travelId,
-      adults: adultsNum,
-      rooms: roomNum,
-      nights: nights,
-      offset: "0",
-      currency: "USD",
-      order: "asc",
-      limit: "10",
-      sort: "recommended",
-      lang: "en_US",
-    },
+    url: "/hotel" + travelId + adultsNum + roomNum + nights,
     headers: {
-      "x-rapidapi-key": "",
+      "x-rapidapi-key": process.env.API,
       "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
     },
   };
@@ -118,6 +172,8 @@ function gettingHotel() {
     .request(options)
     .then(function (response) {
       let hotelList = response.data.data; //don't ask why this is the way that it is
+      lat = respone.data.data.latitude;
+      long = respone.data.data.latitude;
       createHotelOptions(hotelList);
     })
     .catch(function (error) {
@@ -144,24 +200,13 @@ function saveHotel() {
 // save the hotel function, going to need the number of days to generated cost
 // from there we are going to need to have the budget adjusted
 // this function is going to save the lat and longitude of the selected hotel
-
 // getting resturants near the hotel
 function restLatLong() {
   const options = {
     method: "GET",
-    url: "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng",
-    params: {
-      latitude: lat,
-      longitude: long,
-      limit: "30",
-      currency: "USD",
-      distance: "3",
-      open_now: "true",
-      lunit: "mi",
-      lang: "en_US",
-    },
+    url: "h/resturants/" + lat + long,
     headers: {
-      "x-rapidapi-key": "",
+      "x-rapidapi-key": process.env.API,
       "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
     },
   };
@@ -194,7 +239,7 @@ function attrractLatLong() {
       lang: "en_US",
     },
     headers: {
-      "x-rapidapi-key": "",
+      "x-rapidapi-key": process.env.API,
       "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
     },
   };
@@ -212,14 +257,12 @@ function createAttractOptions(response) {}
 function saveAttract() {
   //using the button to save the Attract
 }
-
 function budgetAdjust(input) {
   // taking the input after every save function to then take the price and subject that from the total budget
   if (budget < 0) {
     //change the colour of budget to red if it is lower than 0
   }
 }
-
 function postToUser() {
   // this is going to be for the post method for the user on the database
   // Quotes = budget
@@ -229,11 +272,14 @@ function postToUser() {
 }
 
 // function calls
-gettingTheCityCode();
+// gettingTheCityCode();
 // dateDifference();
 
 // buttons that need to be created                              Functions for each event
 
+document.getElementById("form1").addEventListener("submit", test1);
+getFlights.addEventListener("click", gettingTheCityCode);
+// saveFlight.addEventListener("click", saveFlight);
 // button to save the flight generated from the list        saveFlight
 // button to save the hotel and the lat/long to a global    saveHotel
 // button that is going to save the resturants              saveRest

@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/seed.js",
+    "api": "node public/js/apidemo.js",
+    "test1": "concurrently \"npm:start\" \"npm:api\""
   },
   "author": "",
   "license": "ISC",
