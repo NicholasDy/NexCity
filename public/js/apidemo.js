@@ -1,5 +1,3 @@
-
-
 // let listLocation = document.querySelector(".") //need to fill this in with a class where we are throwing the list for the html
 
 // static inputs for Tokyo
@@ -23,6 +21,34 @@ let lat = 35.6762;
 let long = 139.6503;
 
 // final input
+function test1(event) {
+  event.preventDefault();
+
+  startDate = document.querySelector("#start").value.trim();
+  returnDate = document.querySelector("#return").value.trim();
+  cityName = document.querySelector("#location").value.trim();
+  budget = document.querySelector("#budget").value.trim();
+  adultsNum = document.querySelector("#people").value.trim();
+  roomNum = document.querySelector("#rooms").value.trim();
+
+  if (
+    !startDate ||
+    !returnDate ||
+    !cityName ||
+    !budget ||
+    !adultsNum ||
+    !roomNum
+  ) {
+    alert("please remember to input all info");
+    return;
+  } else {
+    removeform();
+  }
+}
+function removeform() {
+  let form1 = document.querySelector("#inputs1");
+  form1.remove();
+}
 
 // skyscanner api
 // request for the city code
@@ -52,7 +78,7 @@ function gettingFlightData() {
   );
   let flightoptions = {
     method: "GET",
-    url: "/flights",
+    url: `/flights/symbol=${citySymbol}&endSymbol=${endCitySymbol}&startDate=${startDate}&returnDate=${returnDate}`,
     // we can send a post request (bad practice)
     // query string
     // ?symbol=SYM&endSymbol=END&startDate=whatever&returnDate=anotherDate
@@ -209,10 +235,12 @@ function postToUser() {
 }
 
 // function calls
-gettingTheCityCode();
+// gettingTheCityCode();
 // dateDifference();
 
 // buttons that need to be created                              Functions for each event
+
+document.getElementById("form1").addEventListener("submit", test1);
 
 // button to save the flight generated from the list        saveFlight
 // button to save the hotel and the lat/long to a global    saveHotel
