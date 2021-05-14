@@ -85,6 +85,8 @@ var cityName = "New York";
 
 var resultSect = document.querySelector(".results");
 
+var resultSect = document.querySelector(".results")
+
 $("#api-inputs").submit(function (event) {
   event.preventDefault();
   startDate = document.querySelector("#leaving").value;
@@ -142,15 +144,18 @@ function gettingFlightData() {
       "Content-Type": "application/json",
     },
   };
+
   axios.request(flightoptions).then(function (response) {
     // console.log(response.data);
     // data.quotes & data.carriers
     generateFlightList(response);
   });
+
 }
 
 function generateFlightList(response) {
   // flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
+
   // console.log(response.data.Carriers[0].Name);
 
   for (let i = 0; i <= response.data.Quotes.length; i++) {
