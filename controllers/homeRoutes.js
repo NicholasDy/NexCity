@@ -13,6 +13,12 @@ router.get('/userform', (req,res) => {
   })
 });
 
+// added the saved trips route someone doublecheck it
+router.get('/saved', (req,res) => {
+  res.render('saved',{
+  })
+});
+
 router.get('/response', )
 
 router.get('/login', (req, res) => {
