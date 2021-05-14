@@ -84,6 +84,8 @@ var travelId = "298184";
 var citySymbol = "";
 var cityName = "New York"
 
+var resultSect = document.querySelector(".results")
+
 $("#api-inputs").submit(function (event) {
   event.preventDefault();
   startDate = document.querySelector("#leaving").value;
@@ -141,13 +143,31 @@ function gettingFlightData() {
   axios
     .request(flightoptions)
     .then(function (response) {
-      console.log(response.data.Carriers[0].Name);
+      console.log(response.data);
       // data.quotes & data.carriers
-      // generateFlightList(response)
+      generateFlightList(response)
     })
-    .catch(function (error) {
-      console.error(error);
-    });
+}
+
+function generateFlightList(response) {
+  // flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
+  console.log(response.data.Carriers[0].Name)
+  for (let i = 0; i <= response.data.Quotes.length; i++) {
+    // generate the list from the options given
+    // try to give no more than 10 options
+    let flightCells = 
+  `
+  <div class="card-body results" data-marker='${i}'>
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}">${response.data.Carriers[i].Name}</span>
+                    </p>
+                    <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">${response.data.Places[i].IataCode}</span></p>
+                    <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">${response.data.Quotes[i].MinPrice}</span></p>
+                    <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                </div>
+  `
+  resultSect.innerHTML= flightCells
+  }
 }
 
 
