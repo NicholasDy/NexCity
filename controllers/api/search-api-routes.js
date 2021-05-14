@@ -90,7 +90,7 @@ router.get("/hotel/:travelId/:people/:rooms/:nights", function (req, res) {
 // get rest
 // get attractions
 
-router.get("/resturants/:lat/:long", function (req,res){
+router.get("/resturants/:lat/:long", function (req, res) {
   const options = {
     method: "GET",
     url: "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng",
@@ -118,7 +118,6 @@ router.get("/resturants/:lat/:long", function (req,res){
     .catch(function (error) {
       console.error(error);
     });
-})
-
+});
 
 module.exports = router;

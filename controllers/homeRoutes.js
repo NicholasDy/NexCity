@@ -1,17 +1,15 @@
-const router = require('express').Router();
-const { Destination, User } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { Destination, User } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get('/', async (req, res) => {
-
-  res.render('homepage', {
-      });
+router.get("/", async (req, res) => {
+  res.render("homepage", {});
 });
 
-router.get('/userform', (req,res) => {
-  res.render('userform',{
-  })
+router.get("/userform", (req, res) => {
+  res.render("userform", {});
 });
+
 
 // added the saved trips route someone doublecheck it
 router.get('/saved', (req,res) => {
@@ -22,44 +20,52 @@ router.get('/saved', (req,res) => {
 router.get('/response', )
 
 router.get('/login', (req, res) => {
+
+
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/'); // 
+    res.redirect("/"); //
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
-router.post('/', withAuth, (req,res) => {
+router.get("/saved", (req,res)=>{
+try{
+  //going to require all of the trips called for the one user 
 
+res.render("saved")
+}catch(err){
 
+}
+
+  
 })
-// taking the data from the userform and get the data from res.render
-  // have the 
+
 
 // try {
-  //   // Get all projects and JOIN with user data
-  //   const projectData = await Project.findAll({
-  //     include: [
-  //       {
-  //         model: User,
-  //         attributes: ['name'],
-  //       },
-  //     ],
-  //   });
+//   // Get all projects and JOIN with user data
+//   const projectData = await Project.findAll({
+//     include: [
+//       {
+//         model: User,
+//         attributes: ['name'],
+//       },
+//     ],
+//   });
 
-  //   // Serialize data so the template can read it
-  //   const projects = projectData.map((project) => project.get({ plain: true }));
+//   // Serialize data so the template can read it
+//   const projects = projectData.map((project) => project.get({ plain: true }));
 
-  //   // Pass serialized data and session flag into template
-  //   res.render('homepage', { 
-  //     projects, 
-  //     logged_in: req.session.logged_in 
-  //   });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }router.get('/project/:id', async (req, res) => {
+//   // Pass serialized data and session flag into template
+//   res.render('homepage', {
+//     projects,
+//     logged_in: req.session.logged_in
+//   });
+// } catch (err) {
+//   res.status(500).json(err);
+// }router.get('/project/:id', async (req, res) => {
 //   try {
 //     const projectData = await Project.findByPk(req.params.id, {
 //       include: [
