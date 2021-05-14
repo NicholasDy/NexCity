@@ -22,7 +22,7 @@ Destination.init(
     },
     hotel:{
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     userID:{
       type: DataTypes.INTEGER,

@@ -20,18 +20,17 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/response", (req, res) => {
-  try {
-    console.log("here")
-    const postData = req.query;
-    console.log(postData)
-    res.render("response", {
-      postData: postData
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+router.get("/saved", (req,res)=>{
+try{
+  //going to require all of the trips called for the one user 
+
+res.render("saved")
+}catch(err){
+
+}
+
+  
+})
 
 
 // try {
