@@ -10,12 +10,12 @@ let citySymbol = "";
 let cityName = "New York";
 
 // user inputs budgets and nights/people
-let budget = 4000;
+// let budget = 4000;
 let adultsNum = 3;
 let roomNum = 2;
-let flightPrice = "";
-let startDate = "2021-05-15"; //if you are going to test dates remember to have them in the future
-let returnDate = "2021-05-20";
+// let flightPrice = "";
+// let startDate = "2021-05-15"; //if you are going to test dates remember to have them in the future
+// let returnDate = "2021-05-20";
 let nights = "1";
 let lat = 35.6762;
 let long = 139.6503;
@@ -24,6 +24,8 @@ const getFlights = document.querySelector("#get-flights");
 const resultSect = document.querySelector(".results-section")
 const saveFlights = document.querySelector(".save-flight")
 const resultFlight = document.querySelector(".results")
+
+
 
 // final input
 function test1(event) {
@@ -47,7 +49,6 @@ function test1(event) {
     alert("please remember to input all info");
     return;
   } else {
-    removeform();
     addResultsSection();
   }
 }
@@ -285,7 +286,7 @@ function postToUser() {
 
 // buttons that need to be created                              Functions for each event
 
-// getFlights.addEventListener("click", gettingTheCityCode);
+// 
 // saveFlight.addEventListener("click", saveFlight);
 // button to save the flight generated from the list        saveFlight
 // button to save the hotel and the lat/long to a global    saveHotel
