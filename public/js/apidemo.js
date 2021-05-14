@@ -122,19 +122,30 @@ function generateFlightList(response) {
     // generate the list from the options given
     // try to give no more than 10 options
     let flightCells = 
-  `<div>
-      <div class='results' data-marker='${i}' >
-          <p>Carrier: <span data-marker='${i}' id="carrier${i}" >${response.data.Carriers[i].Name}</span></p>
-          <p>Airport: <span data-marker='${i}' id="airport${i}">${response.data.Places[i].IataCode}</span></p>
-          <p>Min Price: $<span data-marker='${i} id="price${i}"'>${response.data.Quotes[i].MinPrice}</span></p>
-          <div>
-              <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
-          </div>
-      </div>
-  </div>`
+  `
+  </div>
+  <div class='results' data-marker='${i}' >
+    <p>Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+    <p>Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+    <p>Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+  <div>
+      <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
+  </div>
+</div>
+  `
   resultSect.innerHTML= flightCells
   }
 }
+
+// <div>
+//       <div class='results' data-marker='${i}' >
+//           <p>Carrier: <span data-marker='${i}' id="carrier${i}" >${response.data.Carriers[i].Name}</span></p>
+//           <p>Airport: <span data-marker='${i}' id="airport${i}">${response.data.Places[i].IataCode}</span></p>
+//           <p>Min Price: $<span data-marker='${i} id="price${i}"'>${response.data.Quotes[i].MinPrice}</span></p>
+//           <div>
+//               <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
+//           </div>
+//       </div>
 
 function btnID(ID) {
   // push the flight to trip array
