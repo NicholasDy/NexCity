@@ -1,16 +1,17 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Destination, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
 
   res.render('homepage', {
       });
-  
 });
 
-router.get('/')
-
+router.get('/userform', (req,res) => {
+  res.render('userform',{
+  })
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -22,6 +23,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.post('/', withAuth, (req,res) => {
+
+
+})
+// taking the data from the userform and get the data from res.render
+  // have the 
 
 // try {
   //   // Get all projects and JOIN with user data
