@@ -123,14 +123,12 @@ function generateFlightList(response) {
     // try to give no more than 10 options
     let flightCells = 
   `
-  <div class='results' data-marker='${i}' >
-    <p>Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
-    <p>Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
-    <p>Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
-  <div>
-      <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
-  </div>
-</div>
+  <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
   `
   resultSect.innerHTML= flightCells
   }
@@ -287,8 +285,7 @@ function postToUser() {
 
 // buttons that need to be created                              Functions for each event
 
-document.getElementById("form1").addEventListener("submit", test1);
-getFlights.addEventListener("click", gettingTheCityCode);
+// getFlights.addEventListener("click", gettingTheCityCode);
 // saveFlight.addEventListener("click", saveFlight);
 // button to save the flight generated from the list        saveFlight
 // button to save the hotel and the lat/long to a global    saveHotel
