@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" type="image/png" href="./assets/nexcity-logo.png"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./public/CSS/style.css">
-    <title>NexCity</title>
-</head>
-
-<body>
     
-    <div class="bg-image" style="background-size:cover; background-repeat: no-repeat; background-image: url('./assets/H6VAe3D.gif'); height: 100vh">
+<div class="bg-image" style="background-size:cover; background-repeat: no-repeat; background-image: url('./images/H6VAe3D.gif'); height: 100vh">
         <nav class="navbar navbar-dark bg-transparent text-white">
             <a class="navbar-brand" href="#">
-            <img src="./public/images/nexcity-logo.png" width="70" height="80" class="d-inline-block align-top" alt="logo">
+            <img src="./images/nexcity-logo.png" width="70" height="80" class="d-inline-block align-top" alt="logo">
             NexCity
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
@@ -29,15 +14,20 @@
             <section class="w-100 row justify-content-center">
                 <div class="col-10 col-md-6 col-lg-5">
                     <h2 class="display-3 text-center text-white mb-5">NexCity</h2>
-                    <img src="assets/nexcity-logo.png" width="120" height="110" class="img-fluid mx-auto d-block mt-5"/>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-light mt-5 w-50"><i class="fas fa-user fa-1.5x mx-2"></i>USERNAME</button> 
-                    <div class="text-center">
-                        <button type="button" class="btn btn-light mt-2 w-50"><i class="fas fa-lock fa-1.5x mx-2"></i>PASSWORD</button> 
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-light mt-2 w-50">LOG IN</button> 
-                    </div>
+                    <img src="./images/nexcity-logo.png" width="120" height="110" class="img-fluid mx-auto d-block mt-5"/>
+                    <form class="form login-form">
+                        <div class="form-group">
+                            <label for="email-login">email:</label>
+                            <input class="form-input" type="text" id="email-login" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password-login">password:</label>
+                            <input class="form-input" type="password" id="password-login" />
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-light mt-2 w-50" type="submit">LOG IN</button> 
+                        </div>
+                    </form>
                     <P class="text-white text-center"><small>Forgot password?</small></P>
                     <hr>
                     <div class="text-center">
@@ -62,11 +52,11 @@
                             <div class="row">
                                 <div class="col-12 col-sm-6">
                                     <label for="first-name">First Name</label>
-                                    <input type="text" class="form-input" name="first-name" placeholder="Enter first name" required />
+                                    <input type="text" class="form-input" id="first-name" name="first-name" placeholder="Enter first name" required />
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <label for="last-name">Last Name</label>
-                                    <input type="text" class="form-input" name="last-name" placeholder="Enter last name" required />
+                                    <input type="text" class="form-input" id="last-name" name="last-name" placeholder="Enter last name" required />
                                 </div>
                             </div>   
                         </div>
@@ -108,12 +98,12 @@
                             <input type="text" class="form-input" name="country" placeholder="Country" required />
                         </div>
                         <div class="form-group">
-                            <label for="username">Create a Username</label>
-                            <input type="text" class="form-input" name="username" placeholder="Username" required />
+                            <label for="address">Email Address</label>
+                            <input type="text" class="form-input" id="email-address" name="address" placeholder="mail" required />
                         </div>
                         <div class="form-group">
                             <label for="password">Create a Password</label>
-                            <input type="text" class="form-input" name="password" placeholder="********" required />
+                            <input type="text" class="form-input" id="password" name="password" placeholder="********" required />
                         </div>
                         <hr>
 
@@ -159,14 +149,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+</div>
+
+<script src="./js/login.js"></script>
        
-    
-        
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
-
-</html>

@@ -1,304 +1,235 @@
-<<<<<<< HEAD
-
-<body>
-    <section class="container-fluid container-1">
-        <!-- Nav bar -->
-        <nav class="navbar navbar-expand-lg nav-bg navbar-dark ">
-            <div class="container-fluid borders">
-            <a class="navbar-brand" href="./layouts/homepage.handlebars">
-=======
+{{!--
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-        <link rel="stylesheet" href="./assets/css/homepage.css">
-        <title>NexCIty </title>
-        
-    </head>
-    <body>
-        <!-- Nav bar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="./homepage.html">
->>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
-                    <!-- LOGO img  -->
-                    <img src="./assets/images/nexcity-logo.png" alt="nexcity Logo" width="40" height="40"  class="d-inline-block align-text-top">
-                    NextCity
-                </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavBarCollaspe" aria-controls="NavBarCollaspe" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/homepage.css">
+    <title>NexCity </title>
+
+</head> --}}
+<!-- Nav bar -->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="TokyoCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-touch="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/images/Tokyo-Station.jpg" class="d-block mx-auto" alt="Tokyo-Station">
+
+            <!-- 1st img caption bar -->
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+
+                <!-- 1st img modal activation button -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#TokyoStationModal">
+                    1st img modal
                 </button>
-                  <div class="collapse navbar-collapse justify-content-end" id="NavBarCollaspe">
-                        <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            <a class="nav-link" href="#">Features</a>
-                            <a class="nav-link" href="#">Pricing</a>
-                            <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                    
-                        </div>
-                  </div>      
             </div>
-        </nav>
-<<<<<<< HEAD
-    </section>
-    <!-- container for flight/restuarant response -->
-    <section class="container container-2">
-        <br>
-        <!-- extra div here -->
-        <div> 
-            <p>
-                Extra DIV if we have to add a Header or some text
-            </p>
         </div>
+        <div class="carousel-item">
+            <img src="/images/imerpial-Palace.jpg" class="d-block mx-auto" alt="imerpial-Palace">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
 
-        <!-- 3 by 4 grid columns for flight results -->
-        <div class="container sub-Container-2a">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2 g-lg-3">
-                <!-- use this code block template in apiDemo.js for showing flight data -->
-                <div class="col">
-                    <div class="card p-3 border bg-light">
-                        <div class="card-body results" data-marker='${i}'>
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
-                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
-                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
-                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
-                            <!-- bootstrap way to add buttons -->
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card p-3 border bg-light">
-                        <div class="card-body results" data-marker='${i}'>
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
-                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
-                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
-                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
-                        </div>
-=======
-
-        <div id="TokyoCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-touch="true">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-              <button type="button" data-bs-target="#TokyoCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./assets/images/Tokyo-Station.jpg" class="d-block mx-auto" alt="Tokyo-Station">
-                  
-                    <!-- 1st img caption bar -->
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                       
-                        <!-- 1st img modal activation button -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TokyoStationModal">
-                            1st img modal
-                        </button>
->>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/images/imerpial-Palace.jpg" class="d-block mx-auto" alt="imerpial-Palace">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                        
-                        <!-- 2nd img modal activation button -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal2">
-                            2nd img modal
-                        </button>
-                    </div>
-                </div>
-
-              <div class="carousel-item">
-                    <img src="./assets/images/Nakameguro.jpg" class="d-block mx-auto" alt="Nakameguro">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                       
-                        <!-- 3rd img modal activation button -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal3">
-                            3rd img modal
-                        </button>
-                    </div>
-               </div>
-
-               <div class="carousel-item">
-                    <img src="./assets/images/suwano-teahouse.jpeg" class="d-block mx-auto" alt="suwano-teahouse">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>fourth slide label</h5>
-                        <p>Some representative placeholder content for the 4th slide.</p>
-
-                        <!-- 4th img modal activation button -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal4">
-                            4th img modal
-                        </button>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="./assets/images/Tokyo-Islands.jpg" class="d-block mx-auto " alt="Tokyo-Islands">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>fifth slide label</h5>
-                        <p>Some representative placeholder content for the 5th slide.</p>
-
-                        <!-- 5th img modal activation button -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal5">
-                            5th img modal
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Previous and Next controls for carousel (wrap with div tag for better styling??) -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#TokyoCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#TokyoCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-        <!-- modals for img carousel -->
-
-            <!-- modal #1 -->
-        <div class="modal fade" id="TokyoStationModal" tabindex="-1" aria-labelledby="TokyoStationModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="TokyoStationModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Modal 1 text area
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-              </div>
+                <!-- 2nd img modal activation button -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal2">
+                    2nd img modal
+                </button>
             </div>
         </div>
 
-        <!-- modal #2 -->
-        <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="Modal2Label" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="Modal2Label">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Modal 2 text area
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-              </div>
+        <div class="carousel-item">
+            <img src="/images/Nakameguro.jpg" class="d-block mx-auto" alt="Nakameguro">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+
+                <!-- 3rd img modal activation button -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal3">
+                    3rd img modal
+                </button>
             </div>
         </div>
 
-        <!-- modal #3 -->
-        <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="Modal3Label" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="Modal3Label">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Modal 3 text area
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-              </div>
-            </div>
-        </div>
-<<<<<<< HEAD
-        <br>
-        <div class="container sub-Container-3b">
-            
-            
+        <div class="carousel-item">
+            <img src="/images/suwano-teahouse.jpeg" class="d-block mx-auto" alt="suwano-teahouse">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>fourth slide label</h5>
+                <p>Some representative placeholder content for the 4th slide.</p>
 
-
-            {{!-- <div class='results' data-marker='${i}' >
-                <p>Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
-                <p>Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
-                <p>Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
-                <div>
-                    <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
-                </div>
-=======
-
-        <!-- modal #4 -->
-        <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="Modal4Label" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="Modal4Label">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Modal 4 text area
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-              </div>
->>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
+                <!-- 4th img modal activation button -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal4">
+                    4th img modal
+                </button>
             </div>
         </div>
 
-        <!-- modal #5 -->
-        <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="Modal5Label" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="Modal5Label">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Modal 5 text area
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-              </div>
+        <div class="carousel-item">
+            <img src="/images/Tokyo-Islands.jpg" class="d-block mx-auto " alt="Tokyo-Islands">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>fifth slide label</h5>
+                <p>Some representative placeholder content for the 5th slide.</p>
+
+                <!-- 5th img modal activation button -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal5">
+                    5th img modal
+                </button>
             </div>
-<<<<<<< HEAD
-        </div>     --}}
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./js/apidemo.js"></script>
-</body>
-=======
         </div>
+    </div>
 
+    <!-- Previous and Next controls for carousel (wrap with div tag for better styling??) -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#TokyoCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#TokyoCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
+<!-- modals for img carousel -->
 
+<!-- modal #1 -->
+<div class="modal fade" id="TokyoStationModal" tabindex="-1" aria-labelledby="TokyoStationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TokyoStationModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Modal 1 text area
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- modal #2 -->
+<div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="Modal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal2Label">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Modal 2 text area
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    </body>    
->>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
-</html>
+<!-- modal #3 -->
+<div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="Modal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal3Label">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Modal 3 text area
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal #4 -->
+<div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="Modal4Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal4Label">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Modal 4 text area
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal #5 -->
+<div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="Modal5Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal5Label">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Modal 5 text area
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{{!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/apidemo.js"></script> --}}

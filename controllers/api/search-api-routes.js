@@ -121,37 +121,4 @@ router.get("/resturants/:lat/:long", function (req,res){
 })
 
 
-router.get("/attract/:lat/:long")
-// Route to save our data to the destination db - used on search.js
-router.post("/api/saved-destination", function (req, res) {
-  db.destination.create(req.body).then(function (data) {
-    res.json(data);
-  });
-});
-
-router.delete("/api/destination/:id", function (req, res) {
-  db.destination
-    .destroy({
-      where: {
-        travelerID: req.params.id,
-      },
-    })
-    .then(function (data) {
-      res.json(data);
-    });
-});
-
-// Put route for updating posts
-router.put("/api/destination", function (req, res) {
-  db.destination
-    .update(req.body, {
-      where: {
-        id: req.body.id,
-      },
-    })
-    .then(function (data) {
-      res.json(data);
-    });
-});
-
 module.exports = router;

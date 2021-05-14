@@ -123,7 +123,6 @@ function generateFlightList(response) {
     // try to give no more than 10 options
     let flightCells = 
   `
-  </div>
   <div class='results' data-marker='${i}' >
     <p>Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
     <p>Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
