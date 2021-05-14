@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+
+<body>
+    <section class="container-fluid container-1">
+        <!-- Nav bar -->
+        <nav class="navbar navbar-expand-lg nav-bg navbar-dark ">
+            <div class="container-fluid borders">
+            <a class="navbar-brand" href="./layouts/homepage.handlebars">
+=======
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,6 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
               <a class="navbar-brand" href="./homepage.html">
+>>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
                     <!-- LOGO img  -->
                     <img src="./assets/images/nexcity-logo.png" alt="nexcity Logo" width="40" height="40"  class="d-inline-block align-text-top">
                     NextCity
@@ -36,6 +46,45 @@
                   </div>      
             </div>
         </nav>
+<<<<<<< HEAD
+    </section>
+    <!-- container for flight/restuarant response -->
+    <section class="container container-2">
+        <br>
+        <!-- extra div here -->
+        <div> 
+            <p>
+                Extra DIV if we have to add a Header or some text
+            </p>
+        </div>
+
+        <!-- 3 by 4 grid columns for flight results -->
+        <div class="container sub-Container-2a">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2 g-lg-3">
+                <!-- use this code block template in apiDemo.js for showing flight data -->
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                            <!-- bootstrap way to add buttons -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                        </div>
+=======
 
         <div id="TokyoCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-touch="true">
             <div class="carousel-indicators">
@@ -58,6 +107,7 @@
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TokyoStationModal">
                             1st img modal
                         </button>
+>>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -182,6 +232,21 @@
               </div>
             </div>
         </div>
+<<<<<<< HEAD
+        <br>
+        <div class="container sub-Container-3b">
+            
+            
+
+
+            {{!-- <div class='results' data-marker='${i}' >
+                <p>Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                <p>Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                <p>Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                <div>
+                    <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
+                </div>
+=======
 
         <!-- modal #4 -->
         <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="Modal4Label" aria-hidden="true">
@@ -199,6 +264,7 @@
                         <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
               </div>
+>>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
             </div>
         </div>
 
@@ -219,6 +285,13 @@
                     </div>
               </div>
             </div>
+<<<<<<< HEAD
+        </div>     --}}
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/apidemo.js"></script>
+</body>
+=======
         </div>
 
 
@@ -227,4 +300,5 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </body>    
+>>>>>>> 52f99f38aaeb287ce8b281a88124f63f6e6d139b
 </html>
