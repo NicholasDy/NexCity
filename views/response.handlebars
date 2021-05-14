@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexCIty/ResponsePage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/response.css">
+   
+</head>
+<body>
+    <section class="container-fluid container-1">
+        <!-- Nav bar -->
+        <nav class="navbar navbar-expand-lg nav-bg navbar-dark ">
+            <div class="container-fluid borders">
+            <a class="navbar-brand" href="./homepage.html">
+                    <!-- LOGO img  -->
+                    <img src="./assets/images/nexcity-logo.png" alt="nexcity Logo" width="40" height="40"  class="d-inline-block align-text-top">
+                    NextCity
+                </a>
+                <!-- control for button collaspe on mobile screen -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavBarCollaspe" aria-controls="NavBarCollaspe" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="NavBarCollaspe">
+                    <div class="navbar-nav">
+                    <!-- actual navbar content -->
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>      
+            </div>
+        </nav>
+    </section>
+    <!-- container for flight/restuarant response -->
+    <section class="container container-2">
+        <br>
+        <!-- extra div here -->
+        <div> 
+            <p>
+                Extra DIV if we have to add a Header or some text
+            </p>
+        </div>
+        <div class="container sub-Container-2a">
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2 g-lg-3">
+                <!-- use this code block template in apiDemo.js for showing flight data -->
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                            <!-- bootstrap way to add buttons -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body results" data-marker='${i}'>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                            <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                            <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                            <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                  <div class="card p-3 border bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-3 border bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        
+            
+        </div>
+        <br>
+        <div class="container sub-Container-2b">
+            <p class="text-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda delectus exercitationem possimus facere voluptas dicta, corporis asperiores magnam quas omnis quos rerum sequi voluptatem doloribus blanditiis? Ab accusantium accusamus consequuntur.
+            </p>
+        </div>
+        <br>
+      
+
+
+    </section>
+        
+    <section class="container container-3">
+        <br>
+        <!-- extra div here -->
+        <div> 
+            <p>
+                Extra DIV if we have to add a Header or some text
+            </p>
+        </div>
+        
+        <div class="container sub-Container-3a">
+            <div></div>
+        </div>
+        <br>
+        <div class="container sub-Container-3b">
+            <!-- 3 by 4 grid columns for flight results -->
+            
+
+
+            <div class='results' data-marker='${i}' >
+                <p>Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                <p>Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                <p>Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                <div>
+                    <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
+                </div>
+            </div>
+            
+
+            <div class='results' data-marker='${i}' >
+                <p>Carrier: <span data-marker='${i}' id="carrier${i}" >Sample Tokyo Airways</span></p>
+                <p>Airport: <span data-marker='${i}' id="airport${i}">Sample Airport</span></p>
+                <p>Min Price: $<span data-marker='${i}' id="price${i}">Lowest Price Flight @ 1 BitCoin</span></p>
+                <div>
+                    <button class="save-flight" id='${i}' onClick='btnID(this.id)'>save</button>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/apidemo.js"></script>
+</body>
+</html>
