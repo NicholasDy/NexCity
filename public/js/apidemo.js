@@ -21,7 +21,7 @@ let lat = 35.6762;
 let long = 139.6503;
 
 const getFlights = document.querySelector("#get-flights");
-const resultSect = document.querySelector(".results-section")
+
 const saveFlights = document.querySelector(".save-flight")
 const resultFlight = document.querySelector(".results")
 

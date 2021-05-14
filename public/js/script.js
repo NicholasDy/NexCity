@@ -54,24 +54,23 @@
 // let budget;
 
 // function getResponse() {
-  //   const responsePage = {
-  //     method: "GET",
-  //     url: "/response",
-  //     params: {
-  //       cityName: cityName,
-  //       budget: budget,
-  //       startDate: startDate,
-  //       returnDate: returnDate,
-  //     },
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-  
-  //   axios.request(responsePage)
-  //   .then( )
-  // }
+//   const responsePage = {
+//     method: "GET",
+//     url: "/response",
+//     params: {
+//       cityName: cityName,
+//       budget: budget,
+//       startDate: startDate,
+//       returnDate: returnDate,
+//     },
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   };
 
+//   axios.request(responsePage)
+//   .then( )
+// }
 
 // const resultSect = document.querySelector(".results-section")
 // const saveFlights = document.querySelector(".save-flight")
@@ -82,7 +81,9 @@ var endCitySymbol = "TYOA";
 var travelId = "298184";
 
 var citySymbol = "";
-var cityName = "New York"
+var cityName = "New York";
+
+var resultSect = document.querySelector(".results");
 
 var resultSect = document.querySelector(".results")
 
@@ -92,12 +93,13 @@ $("#api-inputs").submit(function (event) {
   returnDate = document.querySelector("#returning").value;
   cityName = document.querySelector("#start-city").value.trim();
   budget = document.querySelector("#amount").value.trim();
-  $('#api-inputs').modal('hide');
-  return
+  $("#api-inputs").modal("hide");
+  return;
   // show buttons
 });
 
 $("#get-flights").click(gettingTheCityCode);
+$("");
 // skyscanner api
 // request for the city code
 function gettingTheCityCode() {
@@ -111,7 +113,7 @@ function gettingTheCityCode() {
   axios
     .request(skyscannerCityName)
     .then(function (response) {
-      console.log(response.data.Places[0].CityId);
+      // console.log(response.data.Places[0].CityId);
       citySymbol = response.data.Places[0].CityId;
       gettingFlightData(citySymbol);
     })
@@ -125,11 +127,11 @@ function gettingFlightData() {
   let flightoptions = {
     method: "GET",
     url: "api/destination/flights",
-    params:{
+    params: {
       citySymbol: citySymbol,
       endCity: endCitySymbol,
       startDate: startDate,
-      returnDate: returnDate  
+      returnDate: returnDate,
     },
     // we can send a post request (bad practice)
     // query string
@@ -140,35 +142,68 @@ function gettingFlightData() {
       "Content-Type": "application/json",
     },
   };
-  axios
-    .request(flightoptions)
-    .then(function (response) {
-      console.log(response.data);
-      // data.quotes & data.carriers
-      generateFlightList(response)
-    })
+
+  axios.request(flightoptions).then(function (response) {
+    // console.log(response.data);
+    // data.quotes & data.carriers
+    generateFlightList(response);
+  });
+
 }
 
 function generateFlightList(response) {
   // flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
-  console.log(response.data.Carriers[0].Name)
+
+  // console.log(response.data.Carriers[0].Name);
+let response1 = response.data
+console.log(response1)
   for (let i = 0; i <= response.data.Quotes.length; i++) {
     // generate the list from the options given
     // try to give no more than 10 options
-    let flightCells = 
-  `
+
+    let flightCells = `
   <div class="card-body results" data-marker='${i}'>
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}">${response.data.Carriers[i].Name}</span>
-                    </p>
-                    <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">${response.data.Places[i].IataCode}</span></p>
-                    <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">${response.data.Quotes[i].MinPrice}</span></p>
-                    <button class="save-flight btn btn-primary" id='${i}' onClick='btnID(this.id)'>Save Flight</button>
+                    <h5 class="card-title">Flight Option #${i + 1}</h5>
+                    <p class="card-text">Carrier: <span data-marker='${i}' id="carrier${i}">${
+      response.data.Carriers[i].Name
+    }</span></p>
+                    <p class="card-text">Airport: <span data-marker='${i}' id="airport${i}">${
+      response.data.Places[i].IataCode
+    }</span></p>
+                    <p class="card-text">Min Price: $<span data-marker='${i}' id="price${i}">${
+      response.data.Quotes[i].MinPrice
+    }</span></p>
+                    <button class="save-flight btn btn-primary" id='${i}' onClick='saveFlights(this.id)'>Save Flight</button>
                 </div>
-  `
-  resultSect.innerHTML= flightCells
+  `;
+    resultSect.innerHTML = flightCells;
   }
 }
 
+function saveFlights(ID) {
+  console.log(ID)
 
-// 
+  let carrier = document.querySelector(`#carrier${ID}`).textContent
+  let price = document.querySelector(`#price${ID}`).textContent
+  let budgetLeft = budget - price
+
+  let savedTrip = {
+    method:"POST",
+    url:"/apis/trips",
+    params: {
+      budget: budgetLeft,
+      carrier: carrier,
+    },
+    headers: {
+      "Content-Type": "application/json",
+    },    
+  }
+
+  axios.request(savedTrip)
+  .then(function () {
+    res.json();
+
+  console.log(carrier,price, budgetLeft)
+}
+
+//
