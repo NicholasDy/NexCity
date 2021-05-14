@@ -97,7 +97,9 @@ $("#api-inputs").submit(function (event) {
 });
 
 $("#get-flights").click(gettingTheCityCode);
-$("");
+
+
+
 // skyscanner api
 // request for the city code
 function gettingTheCityCode() {
@@ -150,8 +152,7 @@ function gettingFlightData() {
 function generateFlightList(response) {
   // flightPrice = response.data.Quotes[1].minPrice; //this is added to show what the lowest price option is in the list
   // console.log(response.data.Carriers[0].Name);
-let response1 = response.data
-console.log(response1)
+
   for (let i = 0; i <= response.data.Quotes.length; i++) {
     // generate the list from the options given
     // try to give no more than 10 options
@@ -171,7 +172,7 @@ console.log(response1)
                     <button class="save-flight btn btn-primary" id='${i}' onClick='saveFlights(this.id)'>Save Flight</button>
                 </div>
   `;
-    resultSect.innerHTML = flightCells;
+    resultSect.innerHTML += flightCells;
   }
 }
 
@@ -182,6 +183,7 @@ function saveFlights(ID) {
   let price = document.querySelector(`#price${ID}`).textContent
   let budgetLeft = budget - price
 
+  //this is a early version of the save file, when the hotels are going to be added the values will be pushed to an array that will display on the side of the user's page. All of that data will then be what is submitted to the database.
   let savedTrip = {
     method:"POST",
     url:"/apis/trips",
@@ -199,6 +201,5 @@ function saveFlights(ID) {
     res.json();
 
   console.log(carrier,price, budgetLeft)
+})
 }
-
-//
