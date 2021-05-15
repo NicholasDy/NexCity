@@ -36,3 +36,19 @@ h5 {
 .btn-link-txt{
   color:white;
 }
+
+/* saved.handlebars */
+.tableBg {
+  background-color: rgba(192, 192, 192, 0.81);
+
+}
+
+.tableMargin {
+  /* margin: 200px 0px 0px 200px; */
+padding-top: 200px;
+}
+
+/* userform.handlebar */
+.tripBtn {
+  background-color:rgb(53, 53, 212) ;
+}
