@@ -205,5 +205,3 @@ function saveFlights(ID) {
 
   console.log(carrier,price, budgetLeft)
 }
-
-//
