@@ -66,7 +66,7 @@ To review the code, please visit the repo below:
 
 To view the deployed website:
 
-* [NexCity](https://morning-sands-36620.herokuapp.com/)
+* [NexCity](https://desolate-shore-11113.herokuapp.com/)
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
